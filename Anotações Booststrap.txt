@@ -1,0 +1,147 @@
+Navbar: Documentação resposiva codigo base em material bootstrap, ha varias classes em booststrap supondo que em seus arquivos essas classes ja estão prontas quando instalado podera chamalas.
+
+
+Flex: alinha elementos do css de forma responsiva e dinamica, classes em flex atribuimos ela a um container ou seja uma parte que em globa oque quer alinhar e aplicar a posição exemplo uma div. 
+
+d-flex como umas das suas primeiras atribuições são justify-content nela temos valores como exemplo:
+
+(center = centro)
+(start = inicio)
+(end = fim)
+entre outros em sua documentação tem diferentes tipos de exemplos de valores mas com suas posições.
+
+
+Obs: queria alinhar os elementos no fim:
+
+<div class="justify-content-end>	
+<h1>Gabriel</h1>
+<h2>Jana</h2>
+</div>
+
+isso daria o resultado que é espero para a resolução dessa questão
+
+Melhorando posição da imagem*
+
+obeject-fit = indica como o elemento  se comporta em relação ao seu contêiner
+
+obeject-position = permite a movimentação das imagens em seus eixos X(horizontal) e Y(vertical) nessa ordem.
+
+
+Medidas em (em) font-size exemplo*
+
+<body>
+  <div>texto</div>
+</body>COPIAR CÓDIGO
+body {
+  font-size: 14px;
+}
+
+div {
+  font-size: 2em;
+}
+
+Segundo este exemplo, o texto dentro de div terá tamanho de 2em. O que define qual o valor de 2, nesse caso, é o valor inicial de font-size declarado em body, ou seja, 14px. Então no exemplo acima div terá um valor de font-size de 28px (14px x 2em). Basicamente, o que estamos dizendo para o CSS é que cada em tem um valor inicial de 14px.
+
+<body>
+<div> //font-size: 2em x 14px = 28px
+        <div> //font-size: 2em x 28px = 56px
+              <div> //font-size: 2em x 56px = 112px
+                    texto
+              </div>
+        </div>
+      </div>
+</body>
+
+em : A unidade em funciona da mesma maneira que a porcentagem. Ambas tem a função de deixar o site mais "flexivel", deixando ele responsivo e capaz de se adequar a diferentes resoluções. Você pode usar essas unidades tanto para tamanho de DIVs quanto para tamanho da fonte dos seus textos:
+
+Exemplo %:
+
+    h1 {
+      font: 125% arial, sans-serif;
+    }
+Nesse exemplo o tamanho da fonte do h1 é 125% o tamanho da fonte definida pelo navegador (geralmente 16px) ou 125% o tamanho de fonte definido pela TAG pai (TAG body, por exemplo). Vamos ter o mesmo resultado usando o valor 1.25em. Veja:
+
+ h1 {
+      font: 1.25em arial, sans-serif;
+    }
+Sendo assim, concluimos que:
+
+100% = 1em = tamanho definido
+e
+125% = 1.25em = 1.25*tamanho definido
+Unidade rem : Seguinte a mesma ideia, o rem se baseia no tamanho definido na raiz (rem = root em). A raiz geralmente é a TAG html. Exemplo:
+
+html {
+    font-size: 14px; //Tamanho da fonte na raiz
+}
+
+div {
+    font-size: 1.2rem; //Aqui o valor é 16.8px, pois 14*1.2 = 16.8
+}
+
+
+Quando declaramos a unidade de medida como em, cada elemento herda o tamanho de fonte de seu elemento-pai. Isso permite que todos os elementos em que utilizamos essa medida (pode ser fonte, altura, largura, qualquer caso em que se pode aplicar unidades de medida no CSS) aumentem ou diminuam de tamanho de forma proporcional. Legal, né? Porém às vezes não queremos isso!
+
+25px; //cada em ou rem equivale a 25px
+
+25vw; //cada em ou rem equivale a 25% da largura do viewport
+
+
+
+Anotações sobre Grid*
+
+primeiro exemplo de implementação 
+
+<div class="container">
+<div class="row">
+</div>
+</div>
+
+
+sistema de Col em telas = col-sm aparti dos 540px (colunas  pequenas)
+col-md apartido dos 720px (colunas medias)
+col-lg aparti dos 960px(colunas largas)
+col-xl aparti dos 1140px( colunas extremamentes largas)
+
+
+O Bootstrap Grid é super útil para criarmos leiautes responsivos. Como o Bootstrap trabalha com o conceito de mobile first (onde podemos criar leiautes pensando em primeiro lugar nos dispositivos móveis), dispomos de várias ferramentas de ajuste para que nenhum elemento "quebre" quando saímos de tamanhos de tela menores para maiores.
+
+No caso do Grid, é possível informar qual será a disposição dos elementos do leiaute para cada tipo de tela. A tabela abaixo mostra os breakpoints (pontos de quebra) padrão, porém isso pode ser personalizado.
+
+
+tabela com breakpoints de tela do Bootstrap
+
+Sendo pensado para mobile first, o prefixo col- (sem indicação do tamanho de tela), seguido do número de colunas, já é o indicado para as menores larguras, como por exemplo dispositivos móveis. A partir daí, é possível criar um leiaute para cada largura de tela, até as extra largas (acima de 1200px de largura).
+
+
+
+A propriedade max-width do CSS estabelece a largura máxima de um elemento. Ele evita que o valor usado da propriedade width se torne maior que o valor especificado por max-width.
+
+
+O que initial significa?
+A especificação oficial nos ajuda a entender a diferença entre as keywords initial e inherit.
+
+Initial keyword: Se o valor no CSS da propriedade é ‘initial‘, o valor inicial da propriedade se torna o oficial.
+Initial value: Cada propriedade tem um valor inicial, estipulado na tabela de definição da propriedade do navegador. Se o valor da propriedade do objeto não tem um valor herdado e a cascata não resulta em um valor oficial, o valor especificado da propriedade é o initial.
+
+
+inherit checa se existem outras propriedades no pai que poderão ser utilizadas ou afetadas, antes que seja atribuído o valor inicial. Antes que o navegador decida renderizar o valor herdado, ele deve varrer a cascata de valores acima da propriedade definida e avaliar o possível valor inicial do elemento. Vai depender do que é atribuído no pai mais próximo do elemento:
+
+
+
+H1 está herdando o valor da cor do elemento mais próximo, encontrando a propriedade incluída no elemento body.
+
+
+
+Desta vez, utilizando o valor inicial, H1 ignora o valor que poderia ser herdado do elemento body, e mantém o valor atribuído pelo navegador, isto é, a raiz responsável por renderizar o HTML.
+
+
+
+unset : valor do pai se não pegar ira para o inicil
+initinal: valor inicial padrão
+inherit: valor herdador do pai 
+
+
+
+
+
